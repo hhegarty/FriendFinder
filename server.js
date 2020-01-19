@@ -6,17 +6,19 @@ var path = require('path');
 
 // Configure the Express App //
 var app = express();
-var PORT = process.env.PORT;
-
+var PORT = process.env.PORT || 8080;
 
 // Set up Express App to handle parsing //
+app.use(express.static(__dirname + "/App/css"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
 
 // Add the App routes //
-require(path.join(__dirname, './app/routing/apiRoutes'))(app);
-require(path.join(__dirname, './app/routing/htmlRoutes'))(app);
+require("./App/Routing/apiRoutes.js")(app);
+require("./App/Routing/htmlRoutes.js")(app);
 
 // Start listening on PORT //
 app.listen(PORT, function() {
