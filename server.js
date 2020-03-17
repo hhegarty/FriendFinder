@@ -6,7 +6,7 @@ var path = require('path');
 
 // Configure the Express App //
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 // Set up Express App to handle parsing //
 app.use(express.static(__dirname + "/App/css"));
