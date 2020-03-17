@@ -17,8 +17,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
 // Add the App routes //
-require("./App/Routing/apiRoutes.js")(app);
-require("./App/Routing/htmlRoutes.js")(app);
+require(path.join(__dirname,"./App/Routing/apiRoutes.js"))(app);
+require(path.join(__dirname,"./App/Routing/htmlRoutes.js"))(app);
 
 // Start listening on PORT //
 app.listen(PORT, function() {
